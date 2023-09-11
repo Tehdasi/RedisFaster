@@ -23,11 +23,6 @@ async function otherTest()
     await app.post("/charge" ).send({charges:"100"}).expect(200).then( function(a) { console.log(a.body)} );
 }
 
-async function otherTest2()
-{
-    await app.post("/reset").expect(204);
-    await app.post("/tr").expect(204);
-}
 
 
 
