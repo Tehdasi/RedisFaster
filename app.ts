@@ -32,7 +32,7 @@ async function charge(account: string, charges: number): Promise<ChargeResult> {
     const client = await connect();
     try {
         let rs= await client.eval( 
-            "local v= redis.call('GET','account/balance');\n" +
+            "local v= tonumber(redis.call('GET','account/balance'));\n" +
             `local chr= ${charges};\n` +
             "local nv= v- chr;\n" +
             "if(nv>= 0 ) then\n" +
